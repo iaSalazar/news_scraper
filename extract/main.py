@@ -32,6 +32,7 @@ def _news_scraper(news_site_uid):
             logger.info('Article fetched!!')
             articles.append(article)
             print(article.title)
+            break
             
 
     print(len(articles))
@@ -40,8 +41,7 @@ def _news_scraper(news_site_uid):
 
 def _save_articles(news_site_uid, articles):
     now = datetime.datetime.now().strftime('%Y_%m_%d')
-    out_file_name = '{news_site_uid}_{datetime}_articles.csv'.format(news_site_uid = news_site_uid,
-        datetime = now)
+    out_file_name = '{news_site_uid}.csv'.format(news_site_uid = news_site_uid)
     csv_headers = list(filter(lambda property: not property.startswith('_'), dir(articles[0])))
 
 
